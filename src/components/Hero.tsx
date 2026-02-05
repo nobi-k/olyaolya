@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import olyaMain from "@/assets/images/olya-main.jpg";
+import olyaProfile from "@/assets/images/olya-profile.jpg";
 
 export function Hero() {
   const scrollToAbout = () => {
@@ -46,23 +46,25 @@ export function Hero() {
             <div className="absolute -top-10 -right-10 w-40 h-40 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
             <div className="absolute -bottom-10 left-20 w-40 h-40 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
             
-            <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl border-8 border-white transform rotate-2 hover:rotate-0 transition-all duration-500">
-              <img 
-                src={olyaMain} 
-                alt="Ольга Николаевна" 
-                className="w-full h-full object-cover"
-              />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="relative w-[86%] h-[86%] md:w-full md:h-full rounded-3xl overflow-hidden shadow-2xl border-8 border-white transform rotate-2 hover:rotate-0 transition-all duration-500">
+                <img 
+                  src={olyaProfile} 
+                  alt="Ольга Николаевна" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
             
             {/* Floating cards */}
-            <div className="absolute top-10 -right-4 md:-right-10 animate-float">
-              <div className="bg-white p-3 rounded-lg shadow-xl transform rotate-6">
-                <span className="text-2xl">🎓</span> 2 Красных диплома
+            <div className="absolute top-4 right-2 md:top-10 md:-right-10 animate-float">
+              <div className="bg-white px-3 py-2 md:p-3 rounded-lg shadow-xl transform rotate-6 text-sm md:text-base font-semibold md:font-normal">
+                <span className="text-xl md:text-2xl">🎓</span> 2 Красных диплома
               </div>
             </div>
-            <div className="absolute bottom-10 -left-4 md:-left-10 animate-float animation-delay-2000">
-              <div className="bg-white p-3 rounded-lg shadow-xl transform -rotate-6">
-                <span className="text-2xl">📈</span> Гуру Директа
+            <div className="absolute bottom-4 left-2 md:bottom-10 md:-left-10 animate-float animation-delay-2000">
+              <div className="bg-white px-3 py-2 md:p-3 rounded-lg shadow-xl transform -rotate-6 text-sm md:text-base font-semibold md:font-normal">
+                <span className="text-xl md:text-2xl">📈</span> Гуру Директа
               </div>
             </div>
           </div>
