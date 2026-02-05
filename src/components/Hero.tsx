@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import olyaProfile from "@/assets/images/olya-profile.jpg";
+import olya2 from "@/assets/images/olya-2.jpg";
 
 export function Hero() {
   const scrollToAbout = () => {
@@ -49,7 +49,7 @@ export function Hero() {
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="relative w-[86%] h-[86%] md:w-full md:h-full rounded-3xl overflow-hidden shadow-2xl border-8 border-white transform rotate-2 hover:rotate-0 transition-all duration-500">
                 <img 
-                  src={olyaProfile} 
+                  src={olya2} 
                   alt="Ольга Николаевна" 
                   className="w-full h-full object-cover"
                 />

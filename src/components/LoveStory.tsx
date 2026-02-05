@@ -1,10 +1,10 @@
 import { Heart, Quote } from "lucide-react";
 import olya1 from "@/assets/images/olya-1.jpg";
-import olya2 from "@/assets/images/olya-2.jpg";
+import olyaProfile from "@/assets/images/olya-profile.jpg";
 import olya3 from "@/assets/images/olya-3.jpg";
 
 export function LoveStory() {
-  const images = [olya1, olya2, olya3];
+  const images = [olya1, olyaProfile, olya3];
 
   return (
     <section className="py-20 bg-gradient-to-b from-pink-50 to-white overflow-hidden">
