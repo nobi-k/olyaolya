@@ -1,4 +1,4 @@
-import { ArrowLeft, TrendingUp, Users, Target, MousePointer, BarChart3, CheckCircle2, Layout, Zap } from "lucide-react";
+import { ArrowLeft, Target, MousePointer, BarChart3, Layout, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import medtechImg from "@/assets/images/cases/medtech.png";

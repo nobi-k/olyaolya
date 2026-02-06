@@ -1,4 +1,4 @@
-import { ArrowLeft, Briefcase, GraduationCap, Code, Star, Heart, Mail, Phone, MapPin, Award } from "lucide-react";
+import { ArrowLeft, Briefcase, GraduationCap, Code, Star, Heart, MapPin, Award, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import olyaProfile from "@/assets/images/olya-profile.jpg";
@@ -109,10 +109,15 @@ export default function Resume() {
               </p>
               
               <div className="flex flex-wrap justify-center md:justify-start gap-4 text-gray-600 text-sm md:text-base">
-                <div className="flex items-center gap-2 bg-gray-50 px-3 py-1.5 rounded-full">
-                  <Phone className="w-4 h-4 text-purple-500" />
-                  +7 (937) 114-00-17
-                </div>
+                <a
+                  href="https://t.me/o_khor"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-2 bg-gray-50 px-3 py-1.5 rounded-full hover:bg-purple-50 hover:text-purple-700 transition-colors"
+                >
+                  <ExternalLink className="w-4 h-4 text-purple-500" />
+                  @o_khor
+                </a>
                 <div className="flex items-center gap-2 bg-gray-50 px-3 py-1.5 rounded-full">
                   <MapPin className="w-4 h-4 text-purple-500" />
                   Казань (Готова к переезду)

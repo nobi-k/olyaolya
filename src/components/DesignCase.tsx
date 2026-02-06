@@ -1,4 +1,4 @@
-import { Download, Palette, Layout, PenTool, ExternalLink } from "lucide-react";
+import { Palette, Layout, PenTool, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export function DesignCase() {

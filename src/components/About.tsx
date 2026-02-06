@@ -1,5 +1,5 @@
 import { Award, TrendingUp, Search, Star } from "lucide-react";
-import olyaMain from "@/assets/images/olya-main.jpg";
+import olya1 from "@/assets/images/olya-1.jpg";
 
 export function About() {
   const skills = [
@@ -35,7 +35,7 @@ export function About() {
               <div className="absolute inset-0 bg-pink-200 rounded-[2rem] transform -rotate-3 scale-105"></div>
               <div className="absolute inset-0 bg-purple-200 rounded-[2rem] transform rotate-2 scale-105 opacity-50"></div>
               <img 
-                src={olyaMain} 
+                src={olya1} 
                 alt="Ольга Профиль" 
                 className="relative w-full h-full object-cover rounded-[2rem] shadow-2xl transform rotate-3 hover:rotate-0 transition-all duration-500"
               />
