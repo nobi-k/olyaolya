@@ -12,6 +12,10 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        serif: ["Playfair Display", "serif"],
+        sans: ["Manrope", "sans-serif"],
+      },
       animation: {
         blob: "blob 7s infinite",
         float: "float 6s ease-in-out infinite",

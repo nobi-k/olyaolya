@@ -1,6 +1,7 @@
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
 import Home from "@/pages/Home";
+import Love from "@/pages/Love";
 import CaseStudy from "@/pages/CaseStudy";
 import Resume from "@/pages/Resume";
 import Cases from "@/pages/Cases";
@@ -76,6 +77,7 @@ export default function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/love" element={<Love />} />
         <Route path="/case-study" element={<CaseStudy />} />
         <Route path="/resume" element={<Resume />} />
         <Route path="/cases" element={<Cases />} />
