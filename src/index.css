@@ -46,7 +46,6 @@ select,
 
 img {
   -webkit-user-drag: none;
-  user-drag: none;
 }
 
 .animation-delay-2000 {
