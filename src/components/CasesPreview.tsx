@@ -63,9 +63,10 @@ export function CasesPreview() {
                   <div className="w-2 h-2 rounded-full bg-green-400"></div>
                 </div>
                 
-                <img 
-                  src={item.image} 
-                  alt={item.title} 
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  loading="lazy"
                   className="w-full h-full object-cover object-top pt-6 transform group-hover:scale-105 transition-transform duration-700"
                 />
                 

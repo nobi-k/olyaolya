@@ -21,7 +21,7 @@ export function HeroProfessional() {
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-purple-100 rounded-full blur-3xl opacity-50 -translate-y-1/2 translate-x-1/2" />
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-pink-100 rounded-full blur-3xl opacity-40 translate-y-1/2 -translate-x-1/2" />
 
-      <div className="container px-4 md:px-6 mx-auto relative z-10 grid md:grid-cols-2 gap-12 md:gap-20 items-center pt-20 md:pt-0">
+      <div className="container px-4 md:px-6 mx-auto relative z-10 grid md:grid-cols-2 gap-12 md:gap-20 3xl:gap-32 items-center pt-20 md:pt-0">
         
         {/* Text Content */}
         <motion.div 
@@ -85,7 +85,7 @@ export function HeroProfessional() {
           style={{ y: y2 }} 
           className="relative order-1 md:order-2 flex justify-center"
         >
-           <div className="relative w-[320px] h-[420px] md:w-[450px] md:h-[580px]">
+           <div className="relative w-[320px] h-[420px] md:w-[450px] md:h-[580px] 3xl:w-[550px] 3xl:h-[700px] 4xl:w-[650px] 4xl:h-[830px]">
               <div className="absolute inset-0 bg-gradient-to-tr from-purple-200 to-pink-200 rounded-[3rem] rotate-6 scale-95 opacity-60 blur-sm" />
               <motion.div 
                 className="absolute inset-0 rounded-[3rem] overflow-hidden shadow-2xl border-[6px] border-white"

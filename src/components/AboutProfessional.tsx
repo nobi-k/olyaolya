@@ -81,9 +81,10 @@ export function AboutProfessional() {
           <div className="order-1 lg:order-2 flex justify-center lg:sticky lg:top-24">
             <div className="relative w-full max-w-md aspect-[3/4]">
               <div className="absolute inset-0 bg-gray-900 rounded-[2rem] transform rotate-3 translate-x-4 translate-y-4"></div>
-              <motion.img 
-                src={olya1} 
-                alt="Ольга Профиль" 
+              <motion.img
+                src={olya1}
+                alt="Ольга Профиль"
+                loading="lazy"
                 className="relative w-full h-full object-cover rounded-[2rem] shadow-2xl grayscale hover:grayscale-0 transition-all duration-700"
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}

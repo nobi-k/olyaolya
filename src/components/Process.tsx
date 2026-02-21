@@ -59,7 +59,7 @@ export function Process() {
             />
           </div>
 
-          <div className="space-y-24 md:space-y-40 relative">
+          <div className="space-y-24 md:space-y-40 3xl:space-y-48 relative">
             {steps.map((step, i) => (
               <StepCard key={i} step={step} index={i} />
             ))}
