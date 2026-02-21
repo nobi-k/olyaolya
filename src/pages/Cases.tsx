@@ -1,5 +1,4 @@
-import { ArrowLeft, Target, MousePointer, BarChart3, Layout, Zap } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Target, MousePointer, BarChart3, Layout, Zap } from "lucide-react";
 import { useEffect } from "react";
 import medtechImg from "@/assets/images/cases/medtech.png";
 import voltgameImg from "@/assets/images/cases/voltgame.png";
@@ -7,9 +6,18 @@ import crazydriftImg from "@/assets/images/cases/crazydrift.png";
 import scnautoImg from "@/assets/images/cases/scnauto.png";
 import creativesImg from "@/assets/images/cases/creatives.png";
 
+const colorMap: Record<string, { border: string; bgLight: string; text: string; bgStat: string; borderStat: string; textStat: string; bgBadge: string; textBadge: string }> = {
+  blue: { border: "border-blue-200", bgLight: "bg-blue-500/10", text: "text-blue-600", bgStat: "bg-blue-50", borderStat: "border-blue-100", textStat: "text-blue-600", bgBadge: "bg-blue-100", textBadge: "text-blue-700" },
+  orange: { border: "border-orange-200", bgLight: "bg-orange-500/10", text: "text-orange-600", bgStat: "bg-orange-50", borderStat: "border-orange-100", textStat: "text-orange-600", bgBadge: "bg-orange-100", textBadge: "text-orange-700" },
+  green: { border: "border-green-200", bgLight: "bg-green-500/10", text: "text-green-600", bgStat: "bg-green-50", borderStat: "border-green-100", textStat: "text-green-600", bgBadge: "bg-green-100", textBadge: "text-green-700" },
+  red: { border: "border-red-200", bgLight: "bg-red-500/10", text: "text-red-600", bgStat: "bg-red-50", borderStat: "border-red-100", textStat: "text-red-600", bgBadge: "bg-red-100", textBadge: "text-red-700" },
+  purple: { border: "border-purple-200", bgLight: "bg-purple-500/10", text: "text-purple-600", bgStat: "bg-purple-50", borderStat: "border-purple-100", textStat: "text-purple-600", bgBadge: "bg-purple-100", textBadge: "text-purple-700" },
+};
+
 export default function Cases() {
   useEffect(() => {
     window.scrollTo(0, 0);
+    document.title = "Кейсы — Ольга Николаевна";
   }, []);
 
   const cases = [
@@ -72,21 +80,8 @@ export default function Cases() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
-        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 text-gray-600 hover:text-purple-600 transition-colors font-medium">
-            <ArrowLeft className="w-5 h-5" />
-            На Главную
-          </Link>
-          <div className="text-lg font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-            Портфолио
-          </div>
-        </div>
-      </header>
-
       <main className="pt-24 pb-20">
-        <div className="container mx-auto px-4 md:px-6 max-w-6xl">
+        <div className="container mx-auto px-4 md:px-6 max-w-6xl 3xl:max-w-7xl">
           
           <div className="text-center mb-16">
             <div className="inline-block px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-bold mb-4">
@@ -120,9 +115,10 @@ export default function Cases() {
                         </div>
                         {/* Image */}
                         <div className="aspect-[16/10] relative overflow-hidden bg-white">
-                          <img 
-                            src={item.image} 
-                            alt={item.title} 
+                          <img
+                            src={item.image}
+                            alt={item.title}
+                            loading="lazy"
                             className="w-full h-full object-cover object-top"
                           />
                           {/* Shine Effect */}
@@ -131,12 +127,12 @@ export default function Cases() {
                       </div>
                       
                       {/* Decorative elements behind */}
-                      <div className={`absolute -top-4 -right-4 w-full h-full border-2 border-${item.color}-200 rounded-xl -z-10`}></div>
-                      <div className={`absolute -bottom-4 -left-4 w-24 h-24 bg-${item.color}-500/10 rounded-full blur-2xl -z-10`}></div>
+                      <div className={`absolute -top-4 -right-4 w-full h-full border-2 ${colorMap[item.color].border} rounded-xl -z-10`}></div>
+                      <div className={`absolute -bottom-4 -left-4 w-24 h-24 ${colorMap[item.color].bgLight} rounded-full blur-2xl -z-10`}></div>
                     </div>
 
                     <div className="absolute bottom-6 left-6 right-6 lg:hidden">
-                       <span className={`inline-block px-4 py-1.5 rounded-full text-sm font-bold bg-white/90 backdrop-blur text-${item.color}-600 shadow-sm`}>
+                       <span className={`inline-block px-4 py-1.5 rounded-full text-sm font-bold bg-white/90 backdrop-blur ${colorMap[item.color].text} shadow-sm`}>
                         {item.category}
                       </span>
                     </div>
@@ -145,14 +141,14 @@ export default function Cases() {
                   {/* Content Side */}
                   <div className={`p-8 md:p-12 flex flex-col justify-center ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
                     <div className="mb-8">
-                      <span className={`hidden lg:inline-block px-4 py-1.5 rounded-full text-sm font-bold bg-${item.color}-100 text-${item.color}-700 mb-4`}>
+                      <span className={`hidden lg:inline-block px-4 py-1.5 rounded-full text-sm font-bold ${colorMap[item.color].bgBadge} ${colorMap[item.color].textBadge} mb-4`}>
                         {item.category}
                       </span>
                       <h2 className="hidden lg:block text-3xl font-bold text-gray-900 mb-4">{item.title}</h2>
                       <h2 className="lg:hidden text-2xl font-bold text-gray-900 mb-4 mt-4">{item.title}</h2>
                       
                       <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                        <Target className={`w-6 h-6 text-${item.color}-500`} />
+                        <Target className={`w-6 h-6 ${colorMap[item.color].text}`} />
                         Задача и Решение
                       </h3>
                       <p className="text-gray-600 text-lg leading-relaxed">
@@ -162,8 +158,8 @@ export default function Cases() {
 
                     <div className="grid grid-cols-2 gap-6 mb-8">
                       {item.stats.map((stat, i) => (
-                        <div key={i} className={`bg-${item.color}-50 p-4 rounded-2xl border border-${item.color}-100`}>
-                          <div className={`text-3xl font-bold text-${item.color}-600 mb-1`}>{stat.value}</div>
+                        <div key={i} className={`${colorMap[item.color].bgStat} p-4 rounded-2xl border ${colorMap[item.color].borderStat}`}>
+                          <div className={`text-3xl font-bold ${colorMap[item.color].textStat} mb-1`}>{stat.value}</div>
                           <div className="text-sm font-medium text-gray-900">{stat.label}</div>
                           <div className="text-xs text-gray-500 mt-1">{stat.sub}</div>
                         </div>

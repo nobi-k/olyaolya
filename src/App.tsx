@@ -1,10 +1,17 @@
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Home from "@/pages/Home";
 import Love from "@/pages/Love";
 import CaseStudy from "@/pages/CaseStudy";
 import Resume from "@/pages/Resume";
 import Cases from "@/pages/Cases";
+import { Navbar } from "@/components/Navbar";
+
+function NavbarWrapper() {
+  const location = useLocation();
+  if (location.pathname === "/love") return null;
+  return <Navbar />;
+}
 
 export default function App() {
   useEffect(() => {
@@ -75,6 +82,7 @@ export default function App() {
 
   return (
     <Router>
+      <NavbarWrapper />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/love" element={<Love />} />

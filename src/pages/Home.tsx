@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { HeroProfessional } from "@/components/HeroProfessional";
 import { AboutProfessional } from "@/components/AboutProfessional";
 import { Services } from "@/components/Services";
@@ -9,6 +10,10 @@ import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 
 export default function Home() {
+  useEffect(() => {
+    document.title = "Ольга Николаевна — Директолог и маркетолог";
+  }, []);
+
   return (
     <main className="min-h-screen bg-white">
       <HeroProfessional />

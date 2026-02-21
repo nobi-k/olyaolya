@@ -8,7 +8,7 @@ export function Contact() {
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-purple-100 rounded-full blur-3xl opacity-30 -translate-y-1/2 translate-x-1/3" />
       
       <div className="container px-4 md:px-6 mx-auto relative z-10">
-        <div className="bg-gray-900 rounded-[3rem] p-10 md:p-20 text-center overflow-hidden relative">
+        <div className="bg-gray-900 rounded-[3rem] p-10 md:p-20 3xl:p-28 4xl:p-32 text-center overflow-hidden relative">
           
           {/* Decor inside card */}
           <div className="absolute top-0 left-0 w-full h-full opacity-10">
@@ -31,7 +31,7 @@ export function Contact() {
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <a 
-                href="https://t.me/olya_direct" 
+                href="https://t.me/o_khor"
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="group px-8 py-5 bg-white text-gray-900 rounded-full font-bold text-lg flex items-center justify-center gap-3 hover:bg-gray-100 transition-all duration-300 hover:scale-105"

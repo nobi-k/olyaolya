@@ -1,11 +1,11 @@
-import { ArrowLeft, Briefcase, GraduationCap, Code, Star, Heart, MapPin, Award, ExternalLink } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Briefcase, GraduationCap, Code, Star, Heart, MapPin, Award, ExternalLink } from "lucide-react";
 import { useEffect } from "react";
 import olyaProfile from "@/assets/images/olya-profile.jpg";
 
 export default function Resume() {
   useEffect(() => {
     window.scrollTo(0, 0);
+    document.title = "Резюме — Ольга Николаевна";
   }, []);
 
   const experiences = [
@@ -68,21 +68,8 @@ export default function Resume() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
-        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 text-gray-600 hover:text-purple-600 transition-colors font-medium">
-            <ArrowLeft className="w-5 h-5" />
-            На Главную
-          </Link>
-          <div className="text-lg font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-            Резюме
-          </div>
-        </div>
-      </header>
-
       <main className="pt-24 pb-20">
-        <div className="container mx-auto px-4 md:px-6 max-w-5xl">
+        <div className="container mx-auto px-4 md:px-6 max-w-5xl 3xl:max-w-6xl">
           
           {/* Header Card */}
           <div className="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-xl border border-purple-100 mb-8 flex flex-col md:flex-row items-center gap-8 md:gap-12 relative overflow-hidden">
@@ -90,9 +77,10 @@ export default function Resume() {
             
             <div className="relative w-48 h-48 md:w-64 md:h-64 shrink-0">
               <div className="absolute inset-0 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full animate-pulse opacity-20"></div>
-              <img 
-                src={olyaProfile} 
-                alt="Ольга Николаевна" 
+              <img
+                src={olyaProfile}
+                alt="Ольга Николаевна"
+                loading="lazy"
                 className="w-full h-full object-cover rounded-full border-4 border-white shadow-lg relative z-10"
               />
               <div className="absolute bottom-2 right-2 bg-white p-2 rounded-full shadow-md z-20 text-2xl" title="Супер-класс!">
