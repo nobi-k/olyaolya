@@ -66,7 +66,7 @@ export function AboutProfessional() {
                   whileHover={{ y: -5 }}
                   transition={{ delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className={`p-8 bg-gray-50 rounded-3xl border border-gray-100 hover:border-purple-200 hover:shadow-xl hover:shadow-purple-50 transition-all duration-300 ${skill.colSpan}`}
+                  className={`p-8 bg-gray-50 rounded-3xl border border-gray-100 hover:border-purple-200 hover:shadow-xl hover:shadow-purple-50 transition-all duration-300 cursor-custom ${skill.colSpan}`}
                 >
                   <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shadow-sm mb-6">
                     {skill.icon}

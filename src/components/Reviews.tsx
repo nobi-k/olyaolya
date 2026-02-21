@@ -48,7 +48,7 @@ export function Reviews() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.2 }}
-              className="bg-gray-50 p-8 rounded-3xl relative group hover:bg-purple-50 transition-colors duration-300"
+              className="bg-gray-50 p-8 rounded-3xl relative group hover:bg-purple-50 transition-colors duration-300 cursor-custom"
             >
               <Quote className="w-10 h-10 text-purple-200 mb-6 group-hover:text-purple-300 transition-colors" />
               <p className="text-gray-600 font-sans leading-relaxed mb-8 text-lg italic">

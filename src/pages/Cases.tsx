@@ -98,7 +98,7 @@ export default function Cases() {
 
           <div className="space-y-20">
             {cases.map((item, index) => (
-              <div key={index} className={`group relative bg-white rounded-[2.5rem] shadow-xl overflow-hidden border border-gray-100 transition-all hover:shadow-2xl`}>
+              <div key={index} className={`group relative bg-white rounded-[2.5rem] shadow-xl overflow-hidden border border-gray-100 transition-all hover:shadow-2xl cursor-custom`}>
                 <div className="grid lg:grid-cols-2 gap-0">
                   
                   {/* Image Side */}

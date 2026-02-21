@@ -50,7 +50,7 @@ export function Services() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -10 }}
-              className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100"
+              className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 cursor-custom"
             >
               <div className="mb-6 p-4 bg-gray-50 rounded-2xl w-fit">
                 {service.icon}

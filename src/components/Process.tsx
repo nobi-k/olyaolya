@@ -82,7 +82,7 @@ function StepCard({ step, index }: { step: typeof steps[0], index: number }) {
       className={`flex flex-col md:flex-row items-center gap-12 ${isEven ? "" : "md:flex-row-reverse"}`}
     >
       <div className="flex-1 w-full">
-        <div className={`p-10 rounded-[2.5rem] border border-gray-100 shadow-xl ${step.color} relative overflow-hidden group hover:scale-[1.02] transition-transform duration-500`}>
+        <div className={`p-10 rounded-[2.5rem] border border-gray-100 shadow-xl ${step.color} relative overflow-hidden group hover:scale-[1.02] transition-transform duration-500 cursor-custom`}>
           <div className="absolute top-0 right-0 p-8 opacity-10 font-serif text-9xl font-bold select-none group-hover:scale-110 transition-transform duration-700">
             {step.num}
           </div>

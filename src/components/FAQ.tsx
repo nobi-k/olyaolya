@@ -40,7 +40,7 @@ export function FAQ() {
           {faqs.map((faq, index) => (
             <div 
               key={index}
-              className="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm"
+              className="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm cursor-custom"
             >
               <button
                 onClick={() => setActiveIndex(activeIndex === index ? null : index)}
