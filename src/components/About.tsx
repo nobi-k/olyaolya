@@ -20,7 +20,7 @@ export function About() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="order-2 md:order-1 grid grid-cols-1 sm:grid-cols-2 gap-6">
             {skills.map((skill, index) => (
-              <div key={index} className="p-6 bg-gray-50 rounded-2xl hover:bg-purple-50 transition-colors border border-gray-100 hover:border-purple-200 shadow-sm hover:shadow-md group">
+              <div key={skill.title} className="p-6 bg-gray-50 rounded-2xl hover:bg-purple-50 transition-colors border border-gray-100 hover:border-purple-200 shadow-sm hover:shadow-md group">
                 <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm mb-4 group-hover:scale-110 transition-transform">
                   {skill.icon}
                 </div>
@@ -36,7 +36,7 @@ export function About() {
               <div className="absolute inset-0 bg-purple-200 rounded-[2rem] transform rotate-2 scale-105 opacity-50"></div>
               <img 
                 src={olya1} 
-                alt="Ольга Профиль" 
+                alt="Портрет Ольги Николаевны — специалист по контекстной рекламе" 
                 className="relative w-full h-full object-cover rounded-[2rem] shadow-2xl transform rotate-3 hover:rotate-0 transition-all duration-500"
               />
             </div>

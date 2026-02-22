@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Send } from "lucide-react";
@@ -13,6 +13,8 @@ export function Navbar() {
   const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const toggleButtonRef = useRef<HTMLButtonElement>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 50);
@@ -23,6 +25,27 @@ export function Navbar() {
   useEffect(() => {
     setIsMobileOpen(false);
   }, [location.pathname]);
+
+  // Focus the first link when the mobile menu opens
+  useEffect(() => {
+    if (isMobileOpen) {
+      const firstLink = mobileMenuRef.current?.querySelector("a, button") as HTMLElement | null;
+      firstLink?.focus();
+    }
+  }, [isMobileOpen]);
+
+  // Handle Escape key to close mobile menu
+  const handleKeyDown = useCallback((e: KeyboardEvent) => {
+    if (e.key === "Escape" && isMobileOpen) {
+      setIsMobileOpen(false);
+      toggleButtonRef.current?.focus();
+    }
+  }, [isMobileOpen]);
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [handleKeyDown]);
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -39,18 +62,19 @@ export function Navbar() {
           {/* Logo */}
           <Link
             to="/"
+            aria-label="Ольга Николаевна — На главную страницу"
             className="text-xl font-serif font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"
           >
             О.Н.
           </Link>
 
           {/* Desktop Nav Links (center) */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav aria-label="Главное меню" className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.to}
                 to={link.to}
-                className={`relative text-sm font-medium transition-colors ${
+                className={`relative text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 focus-visible:ring-offset-2 rounded-sm ${
                   isActive(link.to)
                     ? "text-purple-600"
                     : "text-gray-600 hover:text-gray-900"
@@ -76,14 +100,18 @@ export function Navbar() {
               rel="noopener noreferrer"
               className="hidden md:inline-flex items-center gap-2 px-5 py-2 bg-gray-900 text-white rounded-full text-sm font-medium hover:bg-gray-800 transition-colors"
             >
-              <Send className="w-4 h-4" />
+              <Send className="w-4 h-4" aria-hidden="true" />
               Написать
+              <span className="sr-only">(открывается в новом окне)</span>
             </a>
 
             <button
+              ref={toggleButtonRef}
               onClick={() => setIsMobileOpen(!isMobileOpen)}
               className="md:hidden p-2 text-gray-700 hover:text-purple-600 transition-colors"
-              aria-label="Toggle menu"
+              aria-label={isMobileOpen ? "Закрыть меню" : "Открыть меню"}
+              aria-expanded={isMobileOpen}
+              aria-controls="mobile-menu"
             >
               {isMobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -95,18 +123,23 @@ export function Navbar() {
       <AnimatePresence>
         {isMobileOpen && (
           <motion.div
+            id="mobile-menu"
+            ref={mobileMenuRef}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Мобильное меню навигации"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
             className="fixed inset-0 z-40 bg-white/95 backdrop-blur-lg pt-20"
           >
-            <nav className="flex flex-col items-center gap-6 p-8">
+            <nav aria-label="Мобильное меню" className="flex flex-col items-center gap-6 p-8">
               {navLinks.map((link) => (
                 <Link
                   key={link.to}
                   to={link.to}
-                  className={`text-2xl font-serif font-medium transition-colors ${
+                  className={`text-2xl font-serif font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 focus-visible:ring-offset-2 rounded-sm ${
                     isActive(link.to) ? "text-purple-600" : "text-gray-900"
                   }`}
                 >
@@ -119,8 +152,9 @@ export function Navbar() {
                 rel="noopener noreferrer"
                 className="mt-4 inline-flex items-center gap-2 px-8 py-4 bg-gray-900 text-white rounded-full font-medium text-lg hover:bg-gray-800 transition-colors"
               >
-                <Send className="w-5 h-5" />
+                <Send className="w-5 h-5" aria-hidden="true" />
                 Написать
+                <span className="sr-only">(открывается в новом окне)</span>
               </a>
             </nav>
           </motion.div>

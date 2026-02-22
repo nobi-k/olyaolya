@@ -80,7 +80,7 @@ export default function Cases() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <main className="pt-24 pb-20">
+      <main id="main-content" className="pt-24 pb-20">
         <div className="container mx-auto px-4 md:px-6 max-w-6xl 3xl:max-w-7xl">
           
           <div className="text-center mb-16">
@@ -98,7 +98,7 @@ export default function Cases() {
 
           <div className="space-y-20">
             {cases.map((item, index) => (
-              <div key={index} className={`group relative bg-white rounded-[2.5rem] shadow-xl overflow-hidden border border-gray-100 transition-all hover:shadow-2xl`}>
+              <div key={item.title} className={`group relative bg-white rounded-[2.5rem] shadow-xl overflow-hidden border border-gray-100 transition-all hover:shadow-2xl`}>
                 <div className="grid lg:grid-cols-2 gap-0">
                   
                   {/* Image Side */}
@@ -117,7 +117,7 @@ export default function Cases() {
                         <div className="aspect-[16/10] relative overflow-hidden bg-white">
                           <img
                             src={item.image}
-                            alt={item.title}
+                            alt={`Скриншот проекта: ${item.title} — ${item.category}`}
                             loading="lazy"
                             className="w-full h-full object-cover object-top"
                           />
@@ -158,7 +158,7 @@ export default function Cases() {
 
                     <div className="grid grid-cols-2 gap-6 mb-8">
                       {item.stats.map((stat, i) => (
-                        <div key={i} className={`${colorMap[item.color].bgStat} p-4 rounded-2xl border ${colorMap[item.color].borderStat}`}>
+                        <div key={stat.label} className={`${colorMap[item.color].bgStat} p-4 rounded-2xl border ${colorMap[item.color].borderStat}`}>
                           <div className={`text-3xl font-bold ${colorMap[item.color].textStat} mb-1`}>{stat.value}</div>
                           <div className="text-sm font-medium text-gray-900">{stat.label}</div>
                           <div className="text-xs text-gray-500 mt-1">{stat.sub}</div>
@@ -199,8 +199,9 @@ export default function Cases() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-white text-purple-600 px-8 py-4 rounded-full font-bold hover:bg-purple-50 hover:scale-105 transition-all shadow-lg"
             >
-              <Zap className="w-5 h-5" />
+              <Zap className="w-5 h-5" aria-hidden="true" />
               Написать в Telegram
+              <span className="sr-only">(открывается в новом окне)</span>
             </a>
           </div>
 

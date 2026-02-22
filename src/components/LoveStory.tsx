@@ -36,10 +36,10 @@ export function LoveStory() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {images.map((img, i) => (
-            <div key={i} className="group relative aspect-[3/4] overflow-hidden rounded-2xl shadow-lg transform hover:-translate-y-2 transition-all duration-300 ring-4 ring-white ring-offset-4 ring-offset-pink-50">
+            <div key={`love-img-${i}`} className="group relative aspect-[3/4] overflow-hidden rounded-2xl shadow-lg transform hover:-translate-y-2 transition-all duration-300 ring-4 ring-white ring-offset-4 ring-offset-pink-50">
               <img 
                 src={img} 
-                alt={`Оля фото ${i+1}`} 
+                alt={["Ольга — портрет в полный рост", "Ольга — профессиональное фото", "Ольга — на прогулке"][i]} 
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">

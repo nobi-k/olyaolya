@@ -39,22 +39,26 @@ export function FAQ() {
         <div className="space-y-4">
           {faqs.map((faq, index) => (
             <div 
-              key={index}
+              key={faq.question}
               className="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm"
             >
               <button
                 onClick={() => setActiveIndex(activeIndex === index ? null : index)}
-                className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors"
+                aria-expanded={activeIndex === index}
+                aria-controls={`faq-answer-${index}`}
+                className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 focus-visible:ring-inset"
               >
                 <span className="text-xl font-serif font-bold text-gray-900 pr-8">{faq.question}</span>
-                <span className={`p-2 rounded-full ${activeIndex === index ? 'bg-purple-100 text-purple-600' : 'bg-gray-100 text-gray-500'}`}>
+                <span className={`p-2 rounded-full ${activeIndex === index ? 'bg-purple-100 text-purple-600' : 'bg-gray-100 text-gray-500'}`} aria-hidden="true">
                   {activeIndex === index ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
                 </span>
               </button>
-              
+
               <AnimatePresence>
                 {activeIndex === index && (
                   <motion.div
+                    id={`faq-answer-${index}`}
+                    role="region"
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}

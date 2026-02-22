@@ -30,7 +30,7 @@ export function ResumePreview() {
                 to="/resume" 
                 className="inline-flex items-center justify-center gap-2 bg-white text-gray-900 px-8 py-4 rounded-full font-bold hover:bg-purple-50 hover:scale-105 transition-all duration-300 shadow-lg shadow-white/10"
               >
-                Читать Резюме <ArrowRight className="w-5 h-5" />
+                Читать Резюме <ArrowRight className="w-5 h-5" aria-hidden="true" />
               </Link>
             </div>
 

@@ -60,7 +60,7 @@ export function AboutProfessional() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {skills.map((skill, index) => (
                 <motion.div 
-                  key={index}
+                  key={skill.title}
                   initial={{ opacity: 0, scale: 0.95 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   whileHover={{ y: -5 }}
@@ -83,7 +83,7 @@ export function AboutProfessional() {
               <div className="absolute inset-0 bg-gray-900 rounded-[2rem] transform rotate-3 translate-x-4 translate-y-4"></div>
               <motion.img
                 src={olya1}
-                alt="Ольга Профиль"
+                alt="Ольга Николаевна — профессиональный маркетолог и директолог"
                 loading="lazy"
                 className="relative w-full h-full object-cover rounded-[2rem] shadow-2xl grayscale hover:grayscale-0 transition-all duration-700"
                 initial={{ opacity: 0, x: 20 }}

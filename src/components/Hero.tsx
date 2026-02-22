@@ -30,11 +30,13 @@ export function Hero() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-4">
-            <button 
+            <button
+              type="button"
               onClick={scrollToAbout}
+              aria-label="Перейти к разделу обо мне"
               className="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full font-bold hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 shadow-purple-200"
             >
-              Почему я такая классная? <ArrowRight className="w-5 h-5" />
+              Почему я такая классная? <ArrowRight className="w-5 h-5" aria-hidden="true" />
             </button>
           </div>
         </div>

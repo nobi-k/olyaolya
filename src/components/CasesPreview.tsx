@@ -32,7 +32,7 @@ export function CasesPreview() {
         <div className="flex flex-col md:flex-row items-end justify-between mb-12 gap-6">
           <div className="text-center md:text-left">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-bold mb-4">
-              <Briefcase className="w-4 h-4" />
+              <Briefcase className="w-4 h-4" aria-hidden="true" />
               Портфолио
             </div>
             <h2 className="text-3xl md:text-5xl font-bold text-gray-900">
@@ -43,18 +43,18 @@ export function CasesPreview() {
             </h2>
           </div>
           
-          <Link 
-            to="/cases" 
+          <Link
+            to="/cases"
             className="hidden md:inline-flex items-center gap-2 text-lg font-bold text-gray-900 hover:text-purple-600 transition-colors group"
           >
-            Смотреть все кейсы 
-            <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
+            Смотреть все кейсы
+            <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" aria-hidden="true" />
           </Link>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
           {previewCases.map((item, index) => (
-            <Link key={index} to="/cases" className="group block">
+            <Link key={item.title} to="/cases" aria-labelledby={`case-title-${item.title}`} className="group block">
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden mb-4 shadow-md group-hover:shadow-xl transition-all duration-300 border border-gray-100 bg-white">
                 {/* Browser Header Mockup */}
                 <div className="absolute top-0 left-0 right-0 h-6 bg-gray-100/90 backdrop-blur-sm z-10 flex items-center px-3 gap-1.5 border-b border-gray-200">
@@ -65,7 +65,7 @@ export function CasesPreview() {
                 
                 <img
                   src={item.image}
-                  alt={item.title}
+                  alt={`Скриншот проекта: ${item.title} — ${item.tag}`}
                   loading="lazy"
                   className="w-full h-full object-cover object-top pt-6 transform group-hover:scale-105 transition-transform duration-700"
                 />
@@ -76,7 +76,7 @@ export function CasesPreview() {
                   </span>
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">
+              <h3 id={`case-title-${item.title}`} className="text-xl font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">
                 {item.title}
               </h3>
               <p className="text-gray-600 text-sm line-clamp-2">
@@ -91,7 +91,7 @@ export function CasesPreview() {
             to="/cases" 
             className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-gray-200 rounded-full font-bold text-gray-900 hover:bg-gray-50 transition-colors"
           >
-            Смотреть все кейсы <ArrowRight className="w-4 h-4" />
+            Смотреть все кейсы <ArrowRight className="w-4 h-4" aria-hidden="true" />
           </Link>
         </div>
       </div>
