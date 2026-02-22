@@ -43,7 +43,7 @@ export function Reviews() {
         <div className="grid md:grid-cols-3 gap-8">
           {reviews.map((review, index) => (
             <motion.div
-              key={index}
+              key={review.name}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

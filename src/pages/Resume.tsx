@@ -68,7 +68,7 @@ export default function Resume() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <main className="pt-24 pb-20">
+      <main id="main-content" className="pt-24 pb-20">
         <div className="container mx-auto px-4 md:px-6 max-w-5xl 3xl:max-w-6xl">
           
           {/* Header Card */}
@@ -79,7 +79,7 @@ export default function Resume() {
               <div className="absolute inset-0 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full animate-pulse opacity-20"></div>
               <img
                 src={olyaProfile}
-                alt="Ольга Николаевна"
+                alt="Профессиональное фото Ольги Хорошавиной — специалист по контекстной рекламе"
                 loading="lazy"
                 className="w-full h-full object-cover rounded-full border-4 border-white shadow-lg relative z-10"
               />
@@ -100,11 +100,12 @@ export default function Resume() {
                 <a
                   href="https://t.me/o_khor"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-2 bg-gray-50 px-3 py-1.5 rounded-full hover:bg-purple-50 hover:text-purple-700 transition-colors"
                 >
-                  <ExternalLink className="w-4 h-4 text-purple-500" />
+                  <ExternalLink className="w-4 h-4 text-purple-500" aria-hidden="true" />
                   @o_khor
+                  <span className="sr-only">(открывается в новом окне)</span>
                 </a>
                 <div className="flex items-center gap-2 bg-gray-50 px-3 py-1.5 rounded-full">
                   <MapPin className="w-4 h-4 text-purple-500" />
@@ -148,7 +149,7 @@ export default function Resume() {
                 
                 <div className="space-y-8">
                   {experiences.map((exp, index) => (
-                    <div key={index} className="relative pl-8 border-l-2 border-purple-100 last:border-0 pb-2">
+                    <div key={exp.role} className="relative pl-8 border-l-2 border-purple-100 last:border-0 pb-2">
                       <div className="absolute -left-[9px] top-0 w-4 h-4 bg-purple-500 rounded-full border-4 border-white shadow-sm"></div>
                       <h3 className="text-xl font-bold text-gray-900">{exp.role}</h3>
                       <div className="text-purple-600 font-medium mb-4">{exp.company} | {exp.period}</div>
@@ -169,7 +170,7 @@ export default function Resume() {
                 
                 <div className="grid sm:grid-cols-2 gap-6">
                   {education.map((edu, index) => (
-                    <div key={index} className="bg-gray-50 p-6 rounded-2xl hover:bg-red-50 transition-colors">
+                    <div key={edu.degree} className="bg-gray-50 p-6 rounded-2xl hover:bg-red-50 transition-colors">
                       <h3 className="font-bold text-gray-900 mb-1">{edu.degree}</h3>
                       <p className="text-gray-600 text-sm">{edu.school}</p>
                       <p className="text-gray-400 text-xs mt-2">{edu.year}</p>
@@ -194,7 +195,7 @@ export default function Resume() {
                 
                 <div className="flex flex-wrap gap-2">
                   {skills.map((skill, index) => (
-                    <span key={index} className="px-3 py-1.5 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium hover:bg-purple-100 hover:text-purple-700 transition-colors cursor-default">
+                    <span key={skill} className="px-3 py-1.5 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium hover:bg-purple-100 hover:text-purple-700 transition-colors cursor-default">
                       {skill}
                     </span>
                   ))}
@@ -212,7 +213,7 @@ export default function Resume() {
                 
                 <ul className="space-y-4 text-sm">
                   {achievements.map((item, i) => (
-                     <li key={i} className="flex items-start gap-3">
+                     <li key={item} className="flex items-start gap-3">
                      <Star className="w-5 h-5 mt-0.5 shrink-0 opacity-80" />
                      <span>{item}</span>
                    </li>

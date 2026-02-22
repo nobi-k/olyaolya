@@ -60,7 +60,7 @@ export function AnimatedText({ text, className = "" }: { text: string; className
       className={className}
     >
       {words.map((word, index) => (
-        <motion.span variants={child} style={{ marginRight: "0.25em" }} key={index}>
+        <motion.span variants={child} style={{ marginRight: "0.25em" }} key={`${word}-${index}`}>
           {word}
         </motion.span>
       ))}
@@ -78,7 +78,7 @@ export function Ticker({ items }: { items: string[] }) {
           transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
         >
           {[...items, ...items, ...items, ...items].map((item, i) => (
-            <div key={i} className="flex items-center gap-8">
+            <div key={`${item}-${i}`} className="flex items-center gap-8">
               <span className="text-lg font-medium uppercase tracking-wider">{item}</span>
               <span className="w-2 h-2 bg-purple-500 rounded-full" />
             </div>

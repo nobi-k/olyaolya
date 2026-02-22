@@ -36,12 +36,19 @@ export function Contact() {
                 rel="noopener noreferrer"
                 className="group px-8 py-5 bg-white text-gray-900 rounded-full font-bold text-lg flex items-center justify-center gap-3 hover:bg-gray-100 transition-all duration-300 hover:scale-105"
               >
-                <Send className="w-5 h-5 text-purple-600 group-hover:rotate-12 transition-transform" />
+                <Send className="w-5 h-5 text-purple-600 group-hover:rotate-12 transition-transform" aria-hidden="true" />
                 Написать в Telegram
+                <span className="sr-only">(открывается в новом окне)</span>
               </a>
-              <button className="px-8 py-5 bg-transparent border-2 border-white/20 text-white rounded-full font-bold text-lg flex items-center justify-center gap-3 hover:bg-white/10 transition-colors">
-                Заказать аудит <ArrowRight className="w-5 h-5" />
-              </button>
+              <a
+                href="https://t.me/o_khor"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-5 bg-transparent border-2 border-white/20 text-white rounded-full font-bold text-lg flex items-center justify-center gap-3 hover:bg-white/10 transition-colors"
+              >
+                Заказать аудит <ArrowRight className="w-5 h-5" aria-hidden="true" />
+                <span className="sr-only">(открывается в новом окне)</span>
+              </a>
             </div>
             
             <p className="mt-8 text-sm text-gray-500">

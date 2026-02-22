@@ -56,14 +56,16 @@ export function HeroProfessional() {
            </div>
 
            <div className="flex flex-col sm:flex-row gap-6 pt-4">
-             <motion.button 
+             <motion.button
+               type="button"
                onClick={scrollToAbout}
+               aria-label="Перейти к разделу обо мне"
                whileHover={{ scale: 1.05 }}
                whileTap={{ scale: 0.95 }}
                className="group px-8 py-4 bg-gray-900 text-white rounded-full font-medium text-lg flex items-center justify-center gap-3 hover:bg-gray-800 transition-colors shadow-xl shadow-gray-200"
              >
-               Обсудить проект 
-               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+               Обсудить проект
+               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
              </motion.button>
              
              <div className="flex gap-8 items-center px-4">
